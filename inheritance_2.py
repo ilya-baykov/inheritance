@@ -39,7 +39,7 @@ class SweetTooth(Initialization):
         elif isinstance(other, (MeatEater, Vegetarian)):
             return other.capacity
         else:
-            return f"Невозможно сравнить количество сладкоежек с {other}."
+            raise ValueError(f"Невозможно сравнить количество сладкоежек с {other}.")
 
     def __eq__(self, other: (int, MeatEater, Vegetarian)):
         return self.capacity == self.__verify_data(other)
