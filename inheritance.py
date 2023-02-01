@@ -27,3 +27,15 @@ class Car(Transport):
                   f" {self.__gasoline_residue}л")
         else:
             print("Ошибка заправки автомобиля")
+
+
+class Boat(Transport):
+    def __init__(self, brand, max_speed, owners_name, kind="Boat"):
+        super().__init__(brand, max_speed, kind)
+        self.owners_name = owners_name
+
+    def __str__(self):
+        return f"Этой лодкой марки {self.brand} владеет {self.owners_name}"
+
+
+
