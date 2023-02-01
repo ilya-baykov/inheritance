@@ -38,4 +38,11 @@ class Boat(Transport):
         return f"Этой лодкой марки {self.brand} владеет {self.owners_name}"
 
 
+class Plane(Transport):
+    def __init__(self, brand, max_speed, capacity, kind="Plane"):
+        super().__init__(brand, max_speed, kind)
+        self.capacity = capacity
 
+    def __str__(self):
+        return f"Самолёт марки {self.brand} вмещает в себя " \
+               f"{self.capacity} людей"
