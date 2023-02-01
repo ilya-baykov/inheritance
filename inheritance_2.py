@@ -32,26 +32,20 @@ class SweetTooth(Initialization):
     def __str__(self):
         return f"Сладкоежик в Москве {self.capacity}. Их самая любимая еда {self.food}."
 
-    def __eq__(self, other: (int, MeatEater, Vegetarian)):
+    @classmethod
+    def __verify_data(cls, other):
         if isinstance(other, int):
-            return other == self.capacity
-        elif issubclass(other, Initialization):
-            return self.capacity == other.capacity
+            return other
+        elif isinstance(other, (MeatEater, Vegetarian)):
+            return other.capacity
         else:
             return f"Невозможно сравнить количество сладкоежек с {other}."
 
+    def __eq__(self, other: (int, MeatEater, Vegetarian)):
+        return self.capacity == self.__verify_data(other)
+
     def __lt__(self, other):
-        if isinstance(other, int):
-            return self.capacity < other
-        elif isinstance(other, (MeatEater, Vegetarian)):
-            return self.capacity < other.capacity
-        else:
-            return f"Невозможно сравнить количество сладкоежек в {other}."
+        return self.capacity < self.__verify_data(other)
 
     def __gt__(self, other):
-        if isinstance(other, int):
-            return self.capacity > other
-        elif isinstance(other, (MeatEater, Vegetarian)):
-            return self.capacity > other.capacity
-        else:
-            return f"Невозможно сравнить сладкоежек с {other}."
+        return self.capacity > self.__verify_data(other)
