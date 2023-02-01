@@ -55,18 +55,3 @@ class SweetTooth(Initialization):
             return self.capacity > other.capacity
         else:
             return f"Невозможно сравнить сладкоежек с {other}."
-
-
-if __name__ == '__main__':
-    v_first = Vegetarian(10_000, ["Орехи", "овощи", "фрукты"])
-    print(v_first)
-    v_second = Vegetarian([23], ["nothing"])
-    m_first = MeatEater(15_000, ["Жареную картошку", "рыба"])
-    print(m_first)
-    s_first = SweetTooth(30_000, ["Мороженное", "Чипсы", "Шоколад"])
-    print(s_first)
-    print(s_first > v_first)
-    print(30000 == s_first)
-    print(s_first == 25000)
-    print(100_000 < s_first)
-    print(100 < s_first)
